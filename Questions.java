@@ -38,6 +38,11 @@ public class Questions {
 
     public String getNewRandomQuestion() { // Objet not string for now
         int randomArrayList = (int) (Math.random() * 2);
+        if (tennisQuestionList.size() == 0) {
+            randomArrayList = 1;
+        } else if (pickleQuestionList.size() == 0) {
+            randomArrayList = 0;
+        }
 
         if (randomArrayList == 0) {
             int randomIndex = (int) (Math.random() * tennisQuestionList.size());

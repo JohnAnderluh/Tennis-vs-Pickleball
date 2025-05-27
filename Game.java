@@ -20,7 +20,7 @@ public class Game {
                     Count.updateScore(-1);
                 }
             } else {
-                if (answer.equals("n")) {
+                if (answer.equals("n")) { // SWITCH TO BUTTON
                     Count.updateScore(1);
                 } else {
                     Count.updateScore(-1);
@@ -28,10 +28,7 @@ public class Game {
             }
         }
 
-    }
+        System.out.println(Count.endPhrase());
 
-    public static String over() {
-        return Count.endPhrase();
     }
-
 }

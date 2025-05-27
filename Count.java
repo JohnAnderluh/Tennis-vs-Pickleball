@@ -11,9 +11,6 @@ public class Count {
         count += 1;
         // pickleball vs tennis counter
         score += i;
-        if (count == 25) {
-            Game.over();
-        }
     }
 
     public static String endPhrase() {
