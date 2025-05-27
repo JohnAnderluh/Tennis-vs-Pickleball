@@ -1,12 +1,12 @@
 public class Count {
-    private int count;
-    private int score;
+    private static int count;
+    private static int score;
 
-    public count(){
+    public void count() {
         count = 0;
     }
 
-    public void updateScore(int i) {
+    public static void updateScore(int i) {
         // questions answered
         count += 1;
         // pickleball vs tennis counter
@@ -16,7 +16,7 @@ public class Count {
         }
     }
 
-    public String endPhrase() {
+    public static String endPhrase() {
         // calculate % confidence
         int certainty = Math.abs(score) * 4;
         if (score == 0) {
