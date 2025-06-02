@@ -1,5 +1,5 @@
 public class Count {
-    private static int count;
+    public static int count;
     private static int score;
 
     public void count() {

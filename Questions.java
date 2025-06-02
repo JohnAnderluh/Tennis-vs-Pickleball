@@ -36,22 +36,23 @@ public class Questions {
         bigQuestionList.add(pickleQuestionList);
     }
 
-    public String getNewRandomQuestion() { // Objet not string for now
-        int randomArrayList = (int) (Math.random() * 2);
-        if (tennisQuestionList.size() == 0) {
+    public String getNewRandomQuestion() {
+        int randomArrayList = (int) (Math.random() * 2); // Chose tennisQuestionList (1) or pickleQuestionList(2)
+
+        if (tennisQuestionList.size() == 0) { // if tennisQuestionList is empty do pickleQuestionList
             randomArrayList = 1;
-        } else if (pickleQuestionList.size() == 0) {
+        } else if (pickleQuestionList.size() == 0) { // pickleQuestionList is empty do tennisQuestionList
             randomArrayList = 0;
         }
 
-        if (randomArrayList == 0) {
+        if (randomArrayList == 0) { // remove and return tennis question
             int randomIndex = (int) (Math.random() * tennisQuestionList.size());
             String question = ((bigQuestionList.get(0).get(randomIndex))).toString();
             Game.questionType = 0;
             return tennisQuestionList.remove(randomIndex);
         }
 
-        else {
+        else { // remove and return pickle question
             int randomIndex = (int) (Math.random() * pickleQuestionList.size());
             String question = ((bigQuestionList.get(1).get(randomIndex))).toString();
             Game.questionType = 1;
