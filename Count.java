@@ -1,6 +1,6 @@
 public class Count {
     public static int count;
-    private static int score;
+    public static int score;
 
     public void count() {
         count = 0;

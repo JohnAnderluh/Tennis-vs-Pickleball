@@ -32,15 +32,26 @@ public class Game {
 
         // Set Visible
         frame.setVisible(true);
-
         yesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Code to run when Yes is clicked
-                Count.updateScore(1);
-                System.out.println("Yes button clicked!");
-                questions.setText(question.getNewRandomQuestion());
-                System.out.println(Count.count);
+                if (Count.count == 25) {
+                    buttonPanel.remove(yesButton);
+                    buttonPanel.remove(noButton);
+                    buttonPanel.revalidate();
+                    buttonPanel.repaint();
+                    // frame.remove(noButton);
+                    questions.setText(Count.endPhrase());
+                } else if (questionType == 0) {
+                    Count.updateScore(1);
+                    questions.setText(question.getNewRandomQuestion());
+                }
+
+                else if (questionType == 1) {
+                    Count.updateScore(-1);
+                    questions.setText(question.getNewRandomQuestion());
+                }
 
             }
         });
@@ -49,10 +60,24 @@ public class Game {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Code to run when Yes is clicked
-                Count.updateScore(-1);
-                System.out.println("No button clicked!");
-                questions.setText(question.getNewRandomQuestion());
-                System.out.println(Count.count);
+                if (Count.count == 25) {
+                    buttonPanel.remove(yesButton);
+                    buttonPanel.remove(noButton);
+                    buttonPanel.revalidate();
+                    buttonPanel.repaint();
+                    questions.setText(Count.endPhrase());
+                }
+
+                else if (questionType == 0) {
+                    Count.updateScore(-1);
+                    questions.setText(question.getNewRandomQuestion());
+                }
+
+                else if (questionType == 1) {
+                    Count.updateScore(1);
+                    questions.setText(question.getNewRandomQuestion());
+                }
+
             }
         });
 
